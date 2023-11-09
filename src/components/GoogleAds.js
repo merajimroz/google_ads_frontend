@@ -40,7 +40,7 @@ const GoogleAds = () => {
         if(!refreshToken['refreshToken']) {
             const data = { 'mytoken': token['mytoken']}
 
-            fetch('http://127.0.0.1:8000/api/lookup-refreshtoken/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/lookup-refreshtoken/', {
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -89,8 +89,9 @@ const GoogleAds = () => {
 
     // when user clicks the 'Sign in with Google' button
     const authenticateGoogle = () => {
-        fetch('http://127.0.0.1:8000/api/connect/', {
-            'method': 'GET',
+        fetch('http://adflare.allegiantglobal.io:8000:8000/api/connect/', {
+            method: 'GET',
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Token ${token['mytoken']}`

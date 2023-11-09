@@ -87,7 +87,7 @@ const Location = () => {
             }
 
             // call the API to get location recommendations
-            fetch('http://127.0.0.1:8000/api/location-recommendations/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/location-recommendations/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ const Location = () => {
         }
 
         // call the API to get location recommendations
-        fetch('http://127.0.0.1:8000/api/location-recommendations/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/location-recommendations/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

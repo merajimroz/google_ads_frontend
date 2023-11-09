@@ -117,7 +117,7 @@ const EditCampaign = () => {
                 'campaign_id': campaignId['campaignID']
             }
 
-            fetch('http://127.0.0.1:8000/api/get-campaign-settings/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/get-campaign-settings/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ const EditCampaign = () => {
                 'campaign_id': campaignId['campaignID']
             }
 
-            fetch('http://127.0.0.1:8000/api/sc-settings/enable/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/enable/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -217,7 +217,7 @@ const EditCampaign = () => {
                 'campaign_id': campaignId['campaignID']
             }
 
-            fetch('http://127.0.0.1:8000/api/sc-settings/pause/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/pause/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -255,7 +255,7 @@ const EditCampaign = () => {
                 'campaign_id': campaignId['campaignID']
             }
 
-            fetch('http://127.0.0.1:8000/api/sc-settings/delete/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/delete/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -311,7 +311,7 @@ const EditCampaign = () => {
             'campaign_name': campaignName
         }
 
-        fetch('http://127.0.0.1:8000/api/sc-settings/edit-name/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-name/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -390,7 +390,7 @@ const EditCampaign = () => {
         const ac = new AbortController()
 
         // get recommendations from api
-        fetch('http://127.0.0.1:8000/api/get-budget-recommendation/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/get-budget-recommendation/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -435,7 +435,7 @@ const EditCampaign = () => {
             }
             console.log(data)
 
-            fetch('http://127.0.0.1:8000/api/sc-settings/edit-budget/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-budget/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -573,7 +573,7 @@ const EditCampaign = () => {
         }
         console.log(data)
 
-        fetch('http://127.0.0.1:8000/api/sc-settings/edit-ad-creative/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-ad-creative/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -639,7 +639,7 @@ const EditCampaign = () => {
         console.log(data)
 
         // get search terms report from api
-        fetch('http://127.0.0.1:8000/api/get-search-terms-report/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/get-search-terms-report/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -692,7 +692,7 @@ const EditCampaign = () => {
         console.log(data)
 
         // get negative keywords of smart campaign from api
-        fetch('http://127.0.0.1:8000/api/get-negative-keywords/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/get-negative-keywords/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -756,7 +756,7 @@ const EditCampaign = () => {
         console.log('data sent to the backend')
         console.log(data)
 
-        fetch('http://127.0.0.1:8000/api/edit-negative-keywords/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/edit-negative-keywords/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -804,7 +804,7 @@ const EditCampaign = () => {
         console.log(data)
 
         // get search terms report from api
-        fetch('http://127.0.0.1:8000/api/get-search-terms-report/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/get-search-terms-report/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -890,7 +890,7 @@ const EditCampaign = () => {
         }
         console.log(data_keywords)
 
-        fetch('http://127.0.0.1:8000/api/keywords-recommendations/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/keywords-recommendations/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -962,7 +962,7 @@ const EditCampaign = () => {
         console.log('data sent to the backend')
         console.log(data)
 
-        fetch('http://127.0.0.1:8000/api/sc-settings/edit-keywords/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-keywords/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1030,7 +1030,7 @@ const EditCampaign = () => {
             }
 
             // call the API to get location recommendations
-            fetch('http://127.0.0.1:8000/api/location-recommendations/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/location-recommendations/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1084,7 +1084,7 @@ const EditCampaign = () => {
         }
 
         // call our API to get location recommendations
-        fetch('http://127.0.0.1:8000/api/location-recommendations/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/location-recommendations/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1132,7 +1132,7 @@ const EditCampaign = () => {
         console.log('data sent to the backend')
         console.log(data)
 
-        fetch('http://127.0.0.1:8000/api/sc-settings/edit-geo-targets/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-geo-targets/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1252,7 +1252,7 @@ const EditCampaign = () => {
         console.log('data to send to backend for ad schedule')
         console.log(data)
 
-        fetch('http://127.0.0.1:8000/api/sc-settings/edit-ad-schedule/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-ad-schedule/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

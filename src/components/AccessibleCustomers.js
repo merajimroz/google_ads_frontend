@@ -54,8 +54,9 @@ const AccessibleCustomers = () => {
                 'refreshToken': refreshToken['refreshToken']
             }
 
-            fetch('http://127.0.0.1:8000/api/get-accounts/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/get-accounts/', {
                 method: 'POST',
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Token ${token['mytoken']}`
@@ -107,8 +108,9 @@ const AccessibleCustomers = () => {
 
             console.log("data:")
             console.log(data)
-            fetch('http://127.0.0.1:8000/api/link-accounts/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/link-accounts/', {
                 method: 'POST',
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Token ${token['mytoken']}`
@@ -141,20 +143,23 @@ const AccessibleCustomers = () => {
     // when user clicks the 'Reconnect to Google' button
     // this is in case the refresh token is now working anymore
     // and user has to get another one
-    const authenticateGoogle = () => {
-        fetch('http://127.0.0.1:8000/api/connect/', {
-            'method': 'GET',
+    const authenticateGoogle = async (event) => {
+        event.preventDefault()
+
+        await fetch('http://adflare.allegiantglobal.io:8000/api/connect/', {
+            method: 'GET',
+            // mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Token ${token['mytoken']}`
             }
         })
         .then(function(response) {    
-            return response.text();
+            return response.json();
         })
         .then(function(text) {
             console.log(text);
-            setUrl(text);
+            setUrl(text.url);
         })
         .catch(error => console.log(error))
 

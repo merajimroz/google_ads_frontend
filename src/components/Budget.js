@@ -105,7 +105,7 @@ const Budget = () => {
             const ac = new AbortController()
 
             // get recommendations from api
-            fetch('http://127.0.0.1:8000/api/get-budget-recommendation/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/get-budget-recommendation/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -193,7 +193,7 @@ const Budget = () => {
         // create AbortController function to cancel fetch when it ends
         const ac = new AbortController()
 
-        fetch('http://127.0.0.1:8000/api/create-campaign/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/create-campaign/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

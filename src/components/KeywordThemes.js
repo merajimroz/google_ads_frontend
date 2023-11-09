@@ -157,7 +157,7 @@ const KeywordThemes = () => {
         }
         console.log(data)
 
-        fetch('http://127.0.0.1:8000/api/keywords-recommendations/', {
+        fetch('http://adflare.allegiantglobal.io:8000/api/keywords-recommendations/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

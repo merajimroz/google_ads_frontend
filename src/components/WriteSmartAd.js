@@ -142,7 +142,7 @@ const WriteSmartAd = () => {
             }
 
             // get recommendations from api
-            fetch('http://127.0.0.1:8000/api/get-ad-recommendation/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/get-ad-recommendation/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -22,6 +22,7 @@ function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [token, setToken] = useCookies(['mytoken'])
+    const [refreshToken, setRefreshToken] = useCookies(['refreshToken'])
     const [isLogin, setLogin] = useState(true)
     let history = useHistory()
 
@@ -34,7 +35,13 @@ function Login() {
     
     const loginBtn = () => {
         APIService.LoginUser({username, password})
-        .then(resp => setToken('mytoken', resp.token))
+        .then(resp =>{
+            console.log(resp)
+            
+            setToken('mytoken', resp.access)
+            setRefreshToken('refreshToken', resp.refresh )
+        
+        })
         .catch(error => console.log(error))
 
     }

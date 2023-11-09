@@ -74,7 +74,7 @@ const CreateCampaign = () => {
                 'mytoken': token['mytoken']
             }
 
-            fetch('http://127.0.0.1:8000/api/get-business-info/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/get-business-info/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

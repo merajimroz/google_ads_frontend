@@ -78,7 +78,7 @@ const Campaigns = () => {
                 'date_range': date
             }
 
-            fetch('http://127.0.0.1:8000/api/get-campaigns/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/get-campaigns/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ const Campaigns = () => {
                 'date_range': "using same model of reporting"
             }
 
-            fetch('http://127.0.0.1:8000/api/get-billing/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/get-billing/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
 export default class APIService {
     static UpdateArticle(article_id, body, token) {
-        return fetch(`http://127.0.0.1:8000/api/articles/${article_id}/`, {
+        return fetch(`http://adflare.allegiantglobal.io:8000/api/articles/${article_id}/`, {
             'method': 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -11,7 +11,7 @@ export default class APIService {
     }
 
     static CreateArticle(body, token) {
-        return fetch(`http://127.0.0.1:8000/api/articles/`, {
+        return fetch(`http://adflare.allegiantglobal.io:8000/api/articles/`, {
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export default class APIService {
     }
 
     static DeleteArticle(article_id, token) {
-        return fetch(`http://127.0.0.1:8000/api/articles/${article_id}/`, {
+        return fetch(`http://adflare.allegiantglobal.io:8000/api/articles/${article_id}/`, {
             'method': 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export default class APIService {
     }
 
     static LoginUser(body) {
-        return fetch('http://127.0.0.1:8000/auth/', {
+        return fetch('http://adflare.allegiantglobal.io:8000/api/token/', {
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ export default class APIService {
     }
 
     static RegisterUser(body) {
-        return fetch('http://127.0.0.1:8000/api/users/', {
+        return fetch('http://adflare.allegiantglobal.io:8000/api/users/', {
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json'

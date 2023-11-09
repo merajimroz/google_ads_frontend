@@ -47,7 +47,7 @@ const Home = () => {
             // data to send to the backend
             const data = { 'mytoken': token['mytoken'], 'google_access_code': google_access_code, 'passthrough_val': state}
 
-            fetch('http://127.0.0.1:8000/api/get-token/', {
+            fetch('http://adflare.allegiantglobal.io:8000/api/get-token/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
