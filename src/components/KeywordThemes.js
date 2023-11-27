@@ -157,11 +157,12 @@ const KeywordThemes = () => {
         }
         console.log(data)
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/keywords-recommendations/', {
+        fetch(`${window.env.API_URL}/api/keywords-recommendations/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -262,7 +263,7 @@ const KeywordThemes = () => {
         
         <br/>
         <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" 
-        style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Create New Campaign
         </h4> 
 
@@ -282,7 +283,7 @@ const KeywordThemes = () => {
         <br/>
 
         <h6 className="display-4 text-left mb-4" font="gotham-rounded-bold" 
-        style={{color:'rgb(248,172,6)', fontSize:'20px'}}>
+        style={{color:'rgb(19, 57, 120)', fontSize:'20px'}}>
             3. Select categories of keywords
         </h6>
 
@@ -457,8 +458,8 @@ const KeywordThemes = () => {
                 <div className="col">
 
                     <button type="button" onClick={goStep2} 
-                    className="btn btn-outline-primary btn-block" 
-                    style={{margin:'10px'}}>Back
+                    className="btn" 
+                    style={{margin:'10px', background:"rgb(19, 57, 120)", color: 'white'}}>Back
                     </button>
             
                 </div>
@@ -466,8 +467,8 @@ const KeywordThemes = () => {
                 <div className="col" align="right">
 
                     <button type="button" onClick={goStep4} 
-                    className="btn btn-primary btn-block"  
-                    style={{margin:'10px'}}>
+                    className="btn"  
+                    style={{margin:'10px', background:"rgb(19, 57, 120)", color: 'white'}}>
                         Next
                     </button>
             

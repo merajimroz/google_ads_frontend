@@ -33,7 +33,7 @@ const LearnMore = () => {
         
         <div className="card">
             <div className="card-body">
-            <p className="mb-0" font="gotham-rounded-bold" align="left" style={{color:'black', fontSize:'20px'}}>
+            <p className="mb-0" align="left" style={{color:'black', fontSize:'20px'}}>
                     1. Create an online ad <strong>quickly and easily</strong>.
                 <br/>
                     2. Pay only when people click your ad.
@@ -80,7 +80,7 @@ const LearnMore = () => {
     <div className="container mt-4">
         <br/>
         
-        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        <h4 className="display-4 text-left mb-4" style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Why use Google Ads?
         </h4>
 
@@ -88,8 +88,8 @@ const LearnMore = () => {
         <br/>
 
 
-        <p className="mb-0" font="gotham-rounded-bold" align="left" style={{color:'black', fontSize:'20px'}}>
-        Google Ads allows you to take advantage of the benefits of online advertising: show your ads to the<strong style={{color:'rgb(248,172,6)'}} > right people, 
+        <p className="mb-0" align="left" style={{color:'black', fontSize:'20px'}}>
+        Google Ads allows you to take advantage of the benefits of online advertising: show your ads to the<strong style={{color:'rgb(19, 57, 120)'}} > right people, 
         in the right place, and at the right time.</strong>
         <br/>
         <br/>
@@ -119,10 +119,10 @@ const LearnMore = () => {
         <div className='mt-4' align="center">
             <br></br>
             
-            <button type="button" className="btn btn-primary btn-block" style={{margin:'10px'}}
+            <button type="button" className="btn" style={{margin:'10px', backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}
             onClick={goStart}>START</button>
            
-            <button type="button" className="btn btn-outline-primary btn-block" style={{margin:'10px'}}
+            <button type="button" className="btn" style={{margin:'10px', backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}
             onClick={goHome}>HOME</button>
             
         </div>

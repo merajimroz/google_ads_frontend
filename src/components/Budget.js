@@ -105,11 +105,12 @@ const Budget = () => {
             const ac = new AbortController()
 
             // get recommendations from api
-            fetch('http://adflare.allegiantglobal.io:8000/api/get-budget-recommendation/', {
+            fetch(`${window.env.API_URL}/api/get-budget-recommendation/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -193,11 +194,12 @@ const Budget = () => {
         // create AbortController function to cancel fetch when it ends
         const ac = new AbortController()
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/create-campaign/', {
+        fetch(`${window.env.API_URL}/api/create-campaign/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -226,11 +228,11 @@ const Budget = () => {
 
     return (
         
-    <div className="container mt-4" font="gotham-rounded-bold">
+    <div className="container mt-4" >
         
         <br/>
-        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" 
-        style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        <h4 className="display-4 text-left mb-4"  
+        style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Create New Campaign
         </h4> 
 
@@ -249,8 +251,8 @@ const Budget = () => {
         <br/>
         <br/>
 
-        <h6 className="display-4 text-left mb-4" font="gotham-rounded-bold" 
-        style={{color:'rgb(248,172,6)', fontSize:'20px'}}>
+        <h6 className="display-4 text-left mb-4"  
+        style={{color:'rgb(19, 57, 120)', fontSize:'20px'}}>
             5. Select budget
         </h6>
 
@@ -357,8 +359,8 @@ const Budget = () => {
                 <div className="col">
 
                     <button type="button" onClick={goStep4} 
-                    className="btn btn-outline-primary btn-block" 
-                    style={{margin:'10px'}}>Back
+                    className="btn" 
+                    style={{margin:'10px', backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}>Back
                     </button>
             
                 </div>
@@ -366,8 +368,8 @@ const Budget = () => {
                 <div className="col" align="right">
 
                     <button type="button" onClick={createSmartCampaign} 
-                    className="btn btn-primary btn-block"  
-                    style={{margin:'10px'}}>
+                    className="btn"  
+                    style={{margin:'10px', backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}>
                         Next
                     </button>
             

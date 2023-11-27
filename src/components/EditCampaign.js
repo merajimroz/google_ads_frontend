@@ -117,11 +117,12 @@ const EditCampaign = () => {
                 'campaign_id': campaignId['campaignID']
             }
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/get-campaign-settings/', {
+            fetch(`${window.env.API_URL}/api/get-campaign-settings/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -179,11 +180,12 @@ const EditCampaign = () => {
                 'campaign_id': campaignId['campaignID']
             }
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/enable/', {
+            fetch(`${window.env.API_URL}/api/sc-settings/enable/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -217,7 +219,7 @@ const EditCampaign = () => {
                 'campaign_id': campaignId['campaignID']
             }
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/pause/', {
+            fetch(`${window.env.API_URL}/api/sc-settings/pause/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -255,11 +257,12 @@ const EditCampaign = () => {
                 'campaign_id': campaignId['campaignID']
             }
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/delete/', {
+            fetch(`${window.env.API_URL}/api/sc-settings/delete/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -311,11 +314,12 @@ const EditCampaign = () => {
             'campaign_name': campaignName
         }
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-name/', {
+        fetch(`${window.env.API_URL}/api/sc-settings/edit-name/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -390,11 +394,12 @@ const EditCampaign = () => {
         const ac = new AbortController()
 
         // get recommendations from api
-        fetch('http://adflare.allegiantglobal.io:8000/api/get-budget-recommendation/', {
+        fetch(`${window.env.API_URL}/api/get-budget-recommendation/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -435,11 +440,12 @@ const EditCampaign = () => {
             }
             console.log(data)
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-budget/', {
+            fetch(`${window.env.API_URL}/api/sc-settings/edit-budget/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -573,11 +579,12 @@ const EditCampaign = () => {
         }
         console.log(data)
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-ad-creative/', {
+        fetch(`${window.env.API_URL}/api/sc-settings/edit-ad-creative/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -639,11 +646,12 @@ const EditCampaign = () => {
         console.log(data)
 
         // get search terms report from api
-        fetch('http://adflare.allegiantglobal.io:8000/api/get-search-terms-report/', {
+        fetch(`${window.env.API_URL}/api/get-search-terms-report/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -692,11 +700,12 @@ const EditCampaign = () => {
         console.log(data)
 
         // get negative keywords of smart campaign from api
-        fetch('http://adflare.allegiantglobal.io:8000/api/get-negative-keywords/', {
+        fetch(`${window.env.API_URL}/api/get-negative-keywords/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -756,11 +765,12 @@ const EditCampaign = () => {
         console.log('data sent to the backend')
         console.log(data)
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/edit-negative-keywords/', {
+        fetch(`${window.env.API_URL}/api/edit-negative-keywords/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -804,11 +814,12 @@ const EditCampaign = () => {
         console.log(data)
 
         // get search terms report from api
-        fetch('http://adflare.allegiantglobal.io:8000/api/get-search-terms-report/', {
+        fetch(`${window.env.API_URL}/api/get-search-terms-report/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -890,11 +901,12 @@ const EditCampaign = () => {
         }
         console.log(data_keywords)
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/keywords-recommendations/', {
+        fetch(`${window.env.API_URL}/api/keywords-recommendations/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data_keywords),
             
@@ -962,11 +974,12 @@ const EditCampaign = () => {
         console.log('data sent to the backend')
         console.log(data)
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-keywords/', {
+        fetch(`${window.env.API_URL}/api/sc-settings/edit-keywords/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -1030,11 +1043,12 @@ const EditCampaign = () => {
             }
 
             // call the API to get location recommendations
-            fetch('http://adflare.allegiantglobal.io:8000/api/location-recommendations/', {
+            fetch(`${window.env.API_URL}/api/location-recommendations/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -1084,11 +1098,12 @@ const EditCampaign = () => {
         }
 
         // call our API to get location recommendations
-        fetch('http://adflare.allegiantglobal.io:8000/api/location-recommendations/', {
+        fetch(`${window.env.API_URL}/api/location-recommendations/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data_recomm),
             
@@ -1132,11 +1147,13 @@ const EditCampaign = () => {
         console.log('data sent to the backend')
         console.log(data)
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-geo-targets/', {
+        fetch(`${window.env.API_URL}/api/sc-settings/edit-geo-targets/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -1252,11 +1269,12 @@ const EditCampaign = () => {
         console.log('data to send to backend for ad schedule')
         console.log(data)
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/sc-settings/edit-ad-schedule/', {
+        fetch(`${window.env.API_URL}/api/sc-settings/edit-ad-schedule/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
             
@@ -1289,11 +1307,11 @@ const EditCampaign = () => {
 
     return (
         
-    <div className="container mt-4" font="gotham-rounded-bold">
+    <div className="container mt-4" >
         
         <br/>
-        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" 
-        style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        <h4 className="display-4 text-left mb-4"  
+        style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Campaign Information
         </h4> 
 
@@ -1345,8 +1363,8 @@ const EditCampaign = () => {
                             
                             </Fragment> :
                             // campaign name used as title 
-                            <h5 className="card-title" font="gotham-rounded-bold" 
-                            style={{color:'rgb(248,172,6)', fontSize:'20px'}}>
+                            <h5 className="card-title"  
+                            style={{color:'rgb(19, 57, 120)', fontSize:'20px'}}>
                                 {newCampaignName ? newCampaignName[0].new_campaign_name : item.campaign_name}
                                 <i className="fas fa-pencil-alt fa-fw fa-xs"
                                 style={{marginLeft: '5px', color:'black', cursor: 'pointer'}}
@@ -1491,8 +1509,8 @@ const EditCampaign = () => {
                     {/* card with ad creative starts here */}
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title" font="gotham-rounded-bold" 
-                            style={{color:'rgb(248,172,6)', fontSize:'20px'}}>
+                            <h5 className="card-title"  
+                            style={{color:'rgb(19, 57, 120)', fontSize:'20px'}}>
                                 Ad creative
                             </h5>
                             <br/>
@@ -1647,9 +1665,9 @@ const EditCampaign = () => {
 
                     {/* keyword themes settings starts */}
                     <div className="card">
-                        <div className="card-body" font="gotham-rounded-bold">
-                            <h5 className="card-title" font="gotham-rounded-bold" 
-                            style={{color:'rgb(248,172,6)', fontSize:'20px'}}>
+                        <div className="card-body" >
+                            <h5 className="card-title"  
+                            style={{color:'rgb(19, 57, 120)', fontSize:'20px'}}>
                                 Categories of keywords
                             </h5>
                             <p>
@@ -1911,7 +1929,7 @@ const EditCampaign = () => {
 
                                 {/* search terms table starts */}
                                 <table className="table table-bordered table-hover table-responsive">
-                                    <thead className="thead-light" style={{backgroundColor: 'rgb(248,172,6)'}}>
+                                    <thead className="thead-light" style={{backgroundColor: 'rgb(19, 57, 120)'}}>
                                     <tr key="search_terms_table" style={{ textAlign: 'center', verticalAlign: 'top'}}>
                                         <th key="search_terms" scope="col">Search terms</th>
                                         <th key="clicks" scope="col">Clicks</th>
@@ -2043,10 +2061,10 @@ const EditCampaign = () => {
                     {/* keyword themes settings ends */}
 
                     {/* geo targeting location setting starts */}
-                    <div className="card" font="gotham-rounded-bold">
+                    <div className="card" >
                         <div className="card-body">
                             <h5 className="card-title" 
-                            style={{color:'rgb(248,172,6)', fontSize:'20px'}}>
+                            style={{color:'rgb(19, 57, 120)', fontSize:'20px'}}>
                                 Target locations
                             </h5>
                             {messageEditingGeoTargets && 
@@ -2244,10 +2262,10 @@ const EditCampaign = () => {
                     </div>
 
                     {/* ad schedule setting starts */}
-                    <div className="card" font="gotham-rounded-bold">
+                    <div className="card" >
                         <div className="card-body">
                             <h5 className="card-title" 
-                            style={{color:'rgb(248,172,6)', fontSize:'20px'}}>
+                            style={{color:'rgb(19, 57, 120)', fontSize:'20px'}}>
                                 Ad Schedule
                             </h5>
                             {messageEditingAdSchedule && 
@@ -2271,7 +2289,7 @@ const EditCampaign = () => {
                             // see edit fields
                             <Fragment>
                             <table className="table table-bordered table-hover table-responsive">
-                                <thead className="thead-light" style={{backgroundColor: 'rgb(248,172,6)'}}>
+                                <thead className="thead-light" style={{backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}>
                                     <tr key="ad_schedule_table" 
                                     style={{ textAlign: 'center', verticalAlign: 'top'}}>
                                         
@@ -2412,13 +2430,13 @@ const EditCampaign = () => {
                             <br/>
                             <div className='row'>
                                 <div className="col-sm-1">
-                                    <button type="button" className="btn btn-primary"
+                                    <button type="button" className="btn" style={{ background:"rgb(19, 57, 120)", color: 'white'}}
                                     onClick={onClickSendNewSchedule}>
                                         SAVE
                                     </button>
                                 </div>
                                 <div className="col-sm-1">
-                                    <button type="button" className="btn btn-outline-primary"
+                                    <button type="button" className="btn" style={{ background:"rgb(19, 57, 120)", color: 'white'}}
                                     onClick={enableAdScheduleChange}>
                                         CANCEL
                                     </button>
@@ -2428,7 +2446,7 @@ const EditCampaign = () => {
                             // see table showing ad schedule
                             <Fragment>
                             <table className="table table-bordered table-hover table-responsive">
-                                <thead className="thead-light" style={{backgroundColor: 'rgb(248,172,6)'}}>
+                                <thead className="thead-light" style={{backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}>
                                     <tr key="ad_schedule_table" 
                                     style={{ textAlign: 'center', verticalAlign: 'top'}}>
                                         
@@ -2517,7 +2535,7 @@ const EditCampaign = () => {
                             <br/>
                             <br/>
                             {/* edit button in ad schedule card */}
-                            <button type="button" className="btn btn-outline-primary"
+                            <button type="button" className="btn" style={{ background:"rgb(19, 57, 120)", color: 'white'}}
                             onClick={enableAdScheduleChange}>
                                 EDIT
                             </button>
@@ -2537,7 +2555,7 @@ const EditCampaign = () => {
         <div className="container" align="left">
             
                 <div className="col-6">
-                    <button onClick={goBack} className="btn btn-outline-primary">BACK</button>
+                    <button onClick={goBack} className="btn" style={{ background:"rgb(19, 57, 120)", color: 'white'}}>BACK</button>
                 </div>
             
         </div>

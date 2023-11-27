@@ -78,11 +78,14 @@ const Campaigns = () => {
                 'date_range': date
             }
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/get-campaigns/', {
+            fetch(`${window.env.API_URL}/api/get-campaigns/`, {
                 method: 'POST',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io',
+                    'login-customer-id': '1450764346'
                 },
                 body: JSON.stringify(data),
                 
@@ -120,11 +123,12 @@ const Campaigns = () => {
                 'date_range': "using same model of reporting"
             }
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/get-billing/', {
+            fetch(`${window.env.API_URL}/api/get-billing/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data2),
                 
@@ -196,7 +200,7 @@ const Campaigns = () => {
     <div className="container mt-4" font="gotham-rounded-bold">
         
         <br/>
-        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Campaigns Performance
         </h4> 
 
@@ -318,7 +322,7 @@ const Campaigns = () => {
         <br/>
 
         <table className="table table-bordered table-hover table-responsive">
-            <thead className="thead-light" style={{backgroundColor: 'rgb(248,172,6)'}}>
+            <thead className="thead-light" style={{backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}>
                 <tr key="accounts_table" style={{ textAlign: 'center', verticalAlign: 'top'}}>
                     
                     <th key="campaign_name" scope="col" colSpan={2}>Campaign</th>

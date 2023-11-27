@@ -47,11 +47,12 @@ const Home = () => {
             // data to send to the backend
             const data = { 'mytoken': token['mytoken'], 'google_access_code': google_access_code, 'passthrough_val': state}
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/get-token/', {
+            fetch(`${window.env.API_URL}/api/get-token/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -101,14 +102,14 @@ const Home = () => {
     <div className="container mt-4">
         
         <br/>
-        <h4 className="display-4 text-center mb-4" font="gotham-rounded-bold" style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
-            Get in the first page of Google!
+        <h4 className="display-4 text-center mb-4" style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
+            Get in the first page of Google! 
         </h4>
 
         <br/>
         <br/>
         <p className="mb-0" font="gotham-rounded-bold" align="center" style={{color:'black', fontSize:'20px'}}>
-        FranAds is a free app that that will <strong style={{color:'rgb(248,172,6)'}} >help you sell more by promoting your business </strong>on Google Search, 
+        FranAds is a free app that that will <strong style={{color:'rgb(19, 57, 120)'}} >help you sell more by promoting your business </strong>on Google Search, 
         Google Maps, YouTube, Gmail, and Google partner websites.
         </p>
 
@@ -118,11 +119,11 @@ const Home = () => {
         <div className='mt-4' align="center">
             <br></br>
             
-            <button type="button" className="btn btn-primary btn-block" style={{margin:'10px'}}
-            onClick={goStart}>START</button>
+            <button type="button" className="btn" style={{margin:'10px', background:"rgb(19, 57, 120)", color: 'white'}}
+            onClick={goStart}>Start</button>
             
-            <button type="button" className="btn btn-outline-primary btn-block" style={{margin:'10px'}}
-            onClick={goLearnMore}>LEARN MORE</button>
+            <button type="button" className="btn" style={{margin:'10px', background:"rgb(19, 57, 120)", color: 'white'}}
+            onClick={goLearnMore}>Learn More</button>
             
         </div>
         

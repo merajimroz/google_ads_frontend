@@ -40,11 +40,12 @@ const GoogleAds = () => {
         if(!refreshToken['refreshToken']) {
             const data = { 'mytoken': token['mytoken']}
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/lookup-refreshtoken/', {
+            fetch(`${window.env.API_URL}/api/lookup-refreshtoken/`, {
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data),
         })
@@ -89,12 +90,13 @@ const GoogleAds = () => {
 
     // when user clicks the 'Sign in with Google' button
     const authenticateGoogle = () => {
-        fetch('http://adflare.allegiantglobal.io:8000:8000/api/connect/', {
+        fetch(`${window.env.API_URL}/api/connect/`, {
             method: 'GET',
             mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             }
         })
         .then(function(response) {    
@@ -126,9 +128,9 @@ const GoogleAds = () => {
 
     return (
         
-    <div className="container mt-4" font="gotham-rounded-bold">
+    <div className="container mt-4" >
         
-        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        <h4 className="display-4 text-left mb-4"  style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Welcome to Google Ads!
         </h4>
 

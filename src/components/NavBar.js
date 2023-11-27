@@ -17,6 +17,7 @@ import { NavLink as Link } from 'react-router-dom';
 import {useCookies} from 'react-cookie';
 import {useHistory} from 'react-router-dom';
 
+import "../App.css"
 
 
 
@@ -95,10 +96,10 @@ export const NavBar = () => {
     
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light sticky-top" style={{backgroundColor: 'rgb(248,172,6)'}}>
+        <nav className="navbar navbar-expand-lg navbar-light sticky-top mt-2 m-2" style={{backgroundColor: 'white', borderBottom: '2px solid rgb(19, 57, 120)'}}>
             <div className="container-fluid">
             <Link to="/" className="navbar-brand d-flex w-50 mr-auto" href="/#">
-                    <img src="FranAds_logo.png" alt="company logo company name Fran Ads" width="40%" height="auto"></img> 
+                    <img src="allegiant_logo.png" alt="Allegiant Global" width="20%" height="auto"></img> 
             </Link>
             
             <button className="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" 
@@ -111,37 +112,47 @@ export const NavBar = () => {
                     <ul className="navbar-nav ml-auto mb-2 mb-lg-0 w-100 justify-content-end">
                         
                         <li className="nav-item">
-                        <Link exact to="/" className="nav-link active" activeClassName="nav-link--active" aria-current="page" href="/#" activeStyle={{fontWeight: 'bold'}}
-                        onClick={onClick}>
+                        <Link exact to="/" className="nav-link  redefine_nav" activeClassName="nav-link--active" aria-current="page" href="/#" activeStyle={{fontWeight: 'bold'}}
+                        onClick={onClick}
+                        style={{color: 'rgb(19, 57, 120)'}}
+                        >
                             Home
                         </Link>
                         </li>
                         
                         
-                        <li className="nav-item">
-                        <Link exact to="/learnmore" className="nav-link" href="/#" activeClassName="nav-link--active" activeStyle={{fontWeight: 'bold'}}
-                        onClick={onClick}>
+                        <li className="nav-item ">
+                        <Link exact to="/learnmore" className="nav-link redefine_nav" href="/#" activeClassName="nav-link--active" activeStyle={{fontWeight: 'bold'}}
+                        onClick={onClick}
+                        style={{color: 'rgb(19, 57, 120)'}}
+                        >
                             Why use Google Ads?
                             </Link>
                         </li>
                         
                         <li className="nav-item">
                         <Link exact to="/login" className="nav-link" href="/#" activeClassName="nav-link--active" activeStyle={{fontWeight: 'bold'}}
-                        onClick={onClick}>
+                        onClick={onClick}
+                        style={{color: 'rgb(19, 57, 120)'}}
+                        >
                             Google Ads
                         </Link>
                         </li>
                         
                         <li className="nav-item">
                         <Link exact to="/about" className="nav-link" href="/#" activeClassName="nav-link--active" activeStyle={{fontWeight: 'bold'}}
-                        onClick={onClick}>
+                        onClick={onClick}
+                        style={{color: 'rgb(19, 57, 120)'}}
+                        >
                             About
                         </Link>
                         </li>
                         
                         <li className="nav-item">
                         <Link exact to="/contact" className="nav-link" href="/#" activeClassName="nav-link--active" activeStyle={{fontWeight: 'bold'}}
-                        onClick={onClick}>
+                        onClick={onClick}
+                        style={{color: 'rgb(19, 57, 120)'}}
+                        >
                             Contact
                         </Link>
                         </li>
@@ -197,12 +208,11 @@ export const NavBar = () => {
                 {/* if there is a cookie called 'mytoken', then show Logout because user is logged in, 
                 if not show Login/Register */}
                 {token['mytoken'] ? 
-                    <div className="col-4">
-                        <button onClick={logoutBtn} className="btn btn-outline-dark">LOGOUT</button>
+                    <div className="col-2">
+                        <button onClick={logoutBtn} className="btn " style={{color: 'rgb(19, 57, 120)', border: '1px solid rgb(19, 57, 120)'}}>Logout</button>
                     </div> :
-                    
-                    <div className="col-4">
-                        <button onClick={redirectLogin} className="btn btn-outline-dark">LOGIN / SIGNUP</button>
+                    <div className="col-2">
+                        <button onClick={redirectLogin} className="btn" style={{color: 'rgb(19, 57, 120)'}}>Login / SignUp</button>
                     </div>}
                 
                 </div>

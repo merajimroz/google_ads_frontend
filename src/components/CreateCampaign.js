@@ -74,7 +74,7 @@ const CreateCampaign = () => {
                 'mytoken': token['mytoken']
             }
 
-            fetch('http://adflare.allegiantglobal.io:8000/api/get-business-info/', {
+            fetch(`${window.env.API_URL}/api/get-business-info/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ const CreateCampaign = () => {
         // removeBusiness_name(['business_name']);
         // if accountInfo.business_name exists, remove it
         console.log('changing bus name')
-        if(accountInfo.length > 0 && accountInfo[0].business_name) {
+        if(accountInfo && accountInfo.length > 0 && accountInfo[0].business_name) {
             console.log('inside if(accountInfo.length > 0 && accountInfo[0].business_name) statement')
             const itemToRemove = accountInfo[0].business_name
             console.log('itemToRemove')
@@ -143,7 +143,7 @@ const CreateCampaign = () => {
     const onChangePhoneNumber = (e) => {
         removePhone_number(['phone_number']);
         // if accountInfo.phone_number exists, remove it
-        if(accountInfo.length > 0) {
+        if(accountInfo && accountInfo.length > 0) {
             console.log('inside if statement')
             const itemToRemove = accountInfo[0].phone_number
             console.log('itemToRemove')
@@ -174,7 +174,7 @@ const CreateCampaign = () => {
             
             setBusinessName(business_name['business_name'])
         } 
-        else if(accountInfo.length > 0) {
+        else if(accountInfo && accountInfo.length > 0) {
             if(accountInfo[0].business_name) {
                 setBusinessName(accountInfo[0].business_name)
             }
@@ -255,7 +255,7 @@ const CreateCampaign = () => {
         
         <br/>
         <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" 
-        style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Create New Campaign
         </h4> 
 
@@ -275,7 +275,7 @@ const CreateCampaign = () => {
         <br/>
 
         <h6 className="display-4 text-left mb-4" font="gotham-rounded-bold" 
-        style={{color:'rgb(248,172,6)', fontSize:'20px'}}>
+        style={{color:'rgb(19, 57, 120)', fontSize:'20px'}}>
             1. General Information
         </h6>
         {message ? 
@@ -327,7 +327,7 @@ const CreateCampaign = () => {
         <textarea className="form-control" placeholder="Enter name of your business..." 
         id="business_name" rows="1" maxLength="1000"
         onChange={onChangeBusName} 
-        value={accountInfo.length > 0 ? accountInfo[0].business_name : businessName}></textarea>
+        value={accountInfo && accountInfo.length > 0 ? accountInfo[0].business_name : businessName}></textarea>
         <small className="form-text text-muted">
             This helps Google show your ad when people search for your business by name.
         </small>
@@ -338,7 +338,7 @@ const CreateCampaign = () => {
         <label>Tell us where people go after they click your ad</label>
         <br/>
         <br/>
-        {accountInfo.length > 0 ? 
+        {accountInfo && accountInfo.length > 0 ? 
         <textarea className="form-control" placeholder="https://www.example.com" id="landing_page_url" rows="1" maxLength="1000"
         onChange={onChangeLanding} 
         value={accountInfo[0].final_url ? accountInfo[0].final_url : landingPage}></textarea> :
@@ -384,7 +384,7 @@ const CreateCampaign = () => {
                     </div>
                     <div className="col">
                         <label>Enter phone number for your business</label>
-                        {accountInfo.length > 0 ? 
+                        {accountInfo && accountInfo.length > 0 ? 
                         <textarea className="form-control" placeholder="Enter phone number..." 
                         id="phone_number" rows="1" maxLength="100"
                         onChange={onChangePhoneNumber} 
@@ -407,8 +407,8 @@ const CreateCampaign = () => {
                     <div className="col">
 
                         <button type="button" onClick={goPreviousStep} 
-                        className="btn btn-outline-primary btn-block" 
-                        style={{margin:'10px'}}>Back
+                        className="btn" 
+                        style={{margin:'10px', backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}>Back
                         </button>
                 
                     </div>
@@ -416,8 +416,8 @@ const CreateCampaign = () => {
                     <div className="col" align="right">
 
                         <button type="button" onClick={goStep2} 
-                        className="btn btn-primary btn-block"  
-                        style={{margin:'10px'}}>
+                        className="btn"  
+                        style={{margin:'10px', backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}>
                             Next
                         </button>
                 

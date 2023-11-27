@@ -91,11 +91,12 @@ const CreateAccount = () => {
             'time_zone': time_zone
         }
 
-        fetch('http://adflare.allegiantglobal.io:8000/api/create-account/', {
+        fetch(`${window.env.API_URL}/api/create-account/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -127,7 +128,7 @@ const CreateAccount = () => {
     <div className="container mt-4" font="gotham-rounded-bold">
         
         <br/>
-        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Create Google Ads Accounts
         </h4> 
 

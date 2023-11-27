@@ -17,6 +17,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import App from './App';
 import {CookiesProvider} from 'react-cookie';
+import "./index.css"
 // import reportWebVitals from './reportWebVitals';
 
 function Router() {

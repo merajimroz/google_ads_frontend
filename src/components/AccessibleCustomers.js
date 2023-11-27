@@ -27,7 +27,7 @@ const AccessibleCustomers = () => {
     const [customerID, setCustomerID] = useState('')
     const [customerId, setCustomerId, removeCustomerID] = useCookies(['customer_id'])
     const [Url, setUrl] = useState('')
-    const [message, setMessage] = useState(' Fetching your data... It will take a few seconds.')
+    const [message, setMessage] = useState('Fetching your data... It will take a few seconds.')
     const [messageError, setMessageError] = useState('')
 
 
@@ -53,29 +53,37 @@ const AccessibleCustomers = () => {
                 'mytoken': token['mytoken'], 
                 'refreshToken': refreshToken['refreshToken']
             }
-
-            fetch('http://adflare.allegiantglobal.io:8000/api/get-accounts/', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
-                },
-                body: JSON.stringify(data),
-                
-            })
-            .then(resp => resp.json())
-            .then(resp => {
-                console.log(resp)
-                setAccountInfo(resp)
-                })
-            .catch(error => {
-                console.log(error);
-                setMessage('');
-                setMessageError('During testing, refresh tokens expire. Please reconnect to Google Ads')})
             
-              
-        }
+            async function fetchAccounts(){
+                try {
+                    const resp = await fetch(`${window.env.API_URL}/api/get-accounts/`, {
+                        method: 'POST',
+                        mode: 'cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Token ${token['mytoken']}`,
+                            'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
+                        },
+                        body: JSON.stringify(data),
+                        
+                    })
+                    const accounts = await resp.json()
+                    console.log(accounts, resp)
+                    if(resp.status === 200){
+                     setAccountInfo(accounts)
+                    } else {
+                    setMessageError('During testing, refresh tokens expire. Please reconnect to Google Ads')
+
+                    }
+                } catch (error){
+                    console.log(error);
+                    setMessage('');
+                    setMessageError('During testing, refresh tokens expire. Please reconnect to Google Ads')
+                }
+            }
+            fetchAccounts()
+            }
+            
     }, [token, history, refreshToken, setRefreshToken])
 
     // if accountInfo object has data, delete the 'fetching data' message
@@ -108,12 +116,13 @@ const AccessibleCustomers = () => {
 
             console.log("data:")
             console.log(data)
-            fetch('http://adflare.allegiantglobal.io:8000/api/link-accounts/', {
+            fetch(`${window.env.API_URL}/api/link-accounts/`, {
                 method: 'POST',
-                mode: 'no-cors',
+                // mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -146,12 +155,12 @@ const AccessibleCustomers = () => {
     const authenticateGoogle = async (event) => {
         event.preventDefault()
 
-        await fetch('http://adflare.allegiantglobal.io:8000/api/connect/', {
+        await fetch(`${window.env.API_URL}/api/connect/`, {
             method: 'GET',
-            // mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             }
         })
         .then(function(response) {    
@@ -182,10 +191,10 @@ const AccessibleCustomers = () => {
 
     return (
         
-    <div className="container mt-4" font="gotham-rounded-bold">
+    <div className="container mt-4" >
         
         <br/>
-        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        <h4 className="display-4 text-left mb-4"  style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Google Ads Accounts
         </h4> 
 
@@ -224,7 +233,7 @@ const AccessibleCustomers = () => {
         <br/>
 
         <table className="table table-bordered table-hover table-responsive">
-            <thead className="thead-light" style={{backgroundColor: 'rgb(248,172,6)'}}>
+            <thead className="thead-light" style={{backgroundColor: 'rgb(19, 57, 120)', color: 'white'}}>
                 <tr key="accounts_table" 
                 style={{ textAlign: 'center', verticalAlign: 'top'}}>
                     
@@ -241,7 +250,7 @@ const AccessibleCustomers = () => {
             </thead>
            
             <tbody>
-                {accountInfo.map(item => {
+                {accountInfo && accountInfo.map(item => {
 
                 return(
                     

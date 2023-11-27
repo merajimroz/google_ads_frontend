@@ -87,11 +87,12 @@ const Location = () => {
             }
 
             // call the API to get location recommendations
-            fetch('http://adflare.allegiantglobal.io:8000/api/location-recommendations/', {
+            fetch(`${window.env.API_URL}/api/location-recommendations/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Token ${token['mytoken']}`
+                    'Authorization': `Token ${token['mytoken']}`,
+                    'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
                 },
                 body: JSON.stringify(data),
                 
@@ -152,11 +153,12 @@ const Location = () => {
         }
 
         // call the API to get location recommendations
-        fetch('http://adflare.allegiantglobal.io:8000/api/location-recommendations/', {
+        fetch(`${window.env.API_URL}/api/location-recommendations/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token['mytoken']}`
+                'Authorization': `Token ${token['mytoken']}`,
+                'Access-Control-Allow-Origin': 'https://adflare.allegiantglobal.io'
             },
             body: JSON.stringify(data_recomm),
             
@@ -213,8 +215,8 @@ const Location = () => {
     <div className="container mt-4" font="gotham-rounded-bold">
         
         <br/>
-        <h4 className="display-4 text-left mb-4" font="gotham-rounded-bold" 
-        style={{color:'rgb(248,172,6)', fontSize:'40px'}}>
+        <h4 className="display-4 text-left mb-4" 
+        style={{color:'rgb(19, 57, 120)', fontSize:'40px'}}>
             Create New Campaign
         </h4> 
 
@@ -233,8 +235,8 @@ const Location = () => {
         <br/>
         <br/>
 
-        <h6 className="display-4 text-left mb-4" font="gotham-rounded-bold" 
-        style={{color:'rgb(248,172,6)', fontSize:'20px'}}>
+        <h6 className="display-4 text-left mb-4" 
+        style={{color:'rgb(19, 57, 120)', fontSize:'20px'}}>
             2. Select location
         </h6>
 
@@ -361,8 +363,8 @@ const Location = () => {
                 <div className="col">
 
                     <button type="button" onClick={goStep1} 
-                    className="btn btn-outline-primary btn-block" 
-                    style={{margin:'10px'}}>Back
+                    className="btn" 
+                    style={{margin:'10px', background:"rgb(19, 57, 120)", color: 'white'}}>Back
                     </button>
             
                 </div>
@@ -370,8 +372,8 @@ const Location = () => {
                 <div className="col" align="right">
 
                     <button type="button" onClick={goStep3} 
-                    className="btn btn-primary btn-block"  
-                    style={{margin:'10px'}}>
+                    className="btn"  
+                    style={{margin:'10px', background:"rgb(19, 57, 120)", color: 'white'}}>
                         Next
                     </button>
             

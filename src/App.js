@@ -31,13 +31,12 @@ import Location from './components/Location';
 import Budget from './components/Budget';
 import CreateAccount from './components/CreateAccount';
 import EditCampaign from './components/EditCampaign';
-
+import "./App.css"
 const App = () => (
 
   <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
     <NavBar />
     <div className="container mt-4">
-        
       <Fragment>
         <ScrollToTop />
         <Switch>
