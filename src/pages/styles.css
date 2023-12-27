@@ -1,0 +1,11 @@
+.message {
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'Roboto';
+    color: rgb(10, 38, 84)
+}
+
+.google-button {
+    background-color: blue;
+    width: 100px;
+}
