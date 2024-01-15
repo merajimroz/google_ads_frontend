@@ -4,11 +4,19 @@ import Grid from '@mui/material/Grid'
 import Input from '@mui/material/Input'
 import Typography from '@mui/material/Typography'
 import axios from 'axios'
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
+
+function useQuery() {
+  const { search } = useLocation();
+
+  return React.useMemo(() => new URLSearchParams(search), [search]);
+}
 
 const ExcelManageAds = () => {
   const [file, setFile] = useState(null);
   const { customerId, campaignId, adGroupId } = useParams()
+  let query = useQuery();
+  const type = query.get('type')
 
   const handleFileChange = (e) => {
     const uploadedFile = e.target.files[0];
@@ -21,7 +29,7 @@ const ExcelManageAds = () => {
 
     console.log(customerId, campaignId, adGroupId)
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/adflare/api/excel-ads-template`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/adflare/api/excel-ads-template?type=${type}`, {
         customerId: customerId,
         campaignId: campaignId, 
         adGroupId: adGroupId
@@ -49,7 +57,7 @@ const ExcelManageAds = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/adflare/api/excel-manage-ads`, formData, 
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/adflare/api/excel-manage-ads?type=${type}`, formData, 
       )
 
       if(response.statusText === 'OK'){

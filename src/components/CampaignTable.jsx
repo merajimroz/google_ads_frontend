@@ -23,8 +23,10 @@ const CampaignTable = ({ campaigns}) => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Campaign</TableCell>
+            <TableCell align='center'>ID</TableCell>
+            <TableCell align='center'>Name</TableCell>
+            <TableCell align='center'>Type</TableCell>
+            <TableCell align='center'>Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -33,7 +35,9 @@ const CampaignTable = ({ campaigns}) => {
               <TableCell component="th" scope="row">
                 {campaign.campaignId}
               </TableCell>
-              <TableCell align="right">{campaign.campaignName}</TableCell>
+              <TableCell align="center">{campaign.campaignName}</TableCell>
+              <TableCell align="center">{campaign.advertisingChannelType}</TableCell>
+              <TableCell align="center">{campaign.status}</TableCell>
             </TableRow>
           ))}
         </TableBody>

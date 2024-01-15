@@ -17,7 +17,7 @@ const AdgroupTable = ({ adgroups}) => {
     event.preventDefault()
 
     console.log(adgroup, customerId, campaignId, adgroup.id)
-    navigate(`/googleads/excel-manage-ads/${customerId}/${campaignId}/${adgroup.id}`)
+    navigate(`/googleads/excel-manage-ads/${customerId}/${campaignId}/${adgroup.id}?type=${adgroup.type}`)
   
   }
 
